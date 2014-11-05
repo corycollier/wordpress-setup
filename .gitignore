@@ -10,3 +10,4 @@ build/phpdox/
 
 
 composer.lock
+cache.properties
