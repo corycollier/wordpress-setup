@@ -5,11 +5,17 @@
   <property name="toolsdir" value="${basedir}/vendor/bin/"/>
 
   <property name="project.type" value="plugins" />
-
+  <property name="db.host" value="localhost" />
+  <property name="db.user" value="wordpress" />
+  <property name="db.name" value="wordpress" />
+  <property name="db.pass" value="password" />
 
   <target name="build"
-      depends="prepare,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox"
-      description="">
+      depends="prepare,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox,copy-files,replace-placeholders"
+      description="The default target. This does everything needed to build the entire project">
+  </target>
+
+  <target name="copy-files" description="copy files to build location">
     <!-- copy the source directory -->
     <copy todir="${basedir}/build/html/wp-content/${project.type}/${ant.project.name}">
       <fileset dir="${basedir}/src/">
@@ -17,14 +23,24 @@
       </fileset>
     </copy>
 
+    <copy file="${basedir}/wp-config.php" tofile="${basedir}/build/html/wp-config.php"/>
+
     <!-- only packaging up the theme. We could package up the whole site though ;) -->
     <zip destfile="${basedir}/build/dist/${ant.project.name}.zip" basedir="${basedir}/src/" />
-
   </target>
 
- <target name="build-parallel"
-   depends="prepare,lint,tools-parallel,phpunit,phpdox"
-   description=""/>
+  <target name="replace-placeholders" description="make necessary replacements to placeholders">
+    <replace file="${basedir}/build/html/wp-config.php" token="{DB_NAME}" value="${db.name}"/>
+    <replace file="${basedir}/build/html/wp-config.php" token="{DB_HOST}" value="${db.host}"/>
+    <replace file="${basedir}/build/html/wp-config.php" token="{DB_USER}" value="${db.user}"/>
+    <replace file="${basedir}/build/html/wp-config.php" token="{DB_PASS}" value="${db.pass}"/>
+    <replace dir="${basedir}/build/html" token="{ID}" value="${project.version}"/>
+    <replace dir="${basedir}/build/html" token="{PROJECT}" value="${ant.project.name}"/>
+  </target>
+
+  <target name="build-parallel"
+    depends="prepare,lint,tools-parallel,phpunit,phpdox"
+    description=""/>
 
   <target name="tools-parallel" description="Run tools in parallel">
     <parallel threadCount="2">

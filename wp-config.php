@@ -22,7 +22,7 @@
 /** MySQL database password */
 
 /** MySQL hostname */
-define('DB_HOST', 'mysqlv113');
+define('DB_HOST', '{DB_HOST}');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
