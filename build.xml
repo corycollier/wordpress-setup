@@ -16,7 +16,7 @@
     </copy>
 
     <!-- only packaging up the theme. We could package up the whole site though ;) -->
-    <zip destfile="${basedir}/build/dist/power-posts.zip" basedir="${basedir}/src/" />
+    <zip destfile="${basedir}/build/dist/${ant.project.name}.zip" basedir="${basedir}/src/" />
 
  </target>
 
