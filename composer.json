@@ -1,0 +1,40 @@
+{
+  "name"             : "cory/power-posts",
+  "description"      : "Power Posts Plugin",
+  "license"          : "MIT",
+  "minimum-stability": "alpha",
+
+  "authors": [
+    {
+      "name" : "Cory Collier",
+      "email": "corycollier@corycollier.com"
+    }
+  ],
+
+  "require": {
+    "wordpress": "4.0"
+  },
+
+  "require-dev": {
+    "squizlabs/php_codesniffer": "1.*",
+    "sebastian/phpcpd"         : "*",
+    "phpunit/phpunit"          : "4.3.*",
+    "theseer/phpdox"           : "0.7.*",
+    "phploc/phploc"            : "*",
+    "phpmd/phpmd"              : "@stable"
+  },
+
+  "repositories": [
+    {
+      "type"   : "package",
+      "package": {
+        "name"   : "wordpress",
+        "version": "4.0",
+        "dist"   : {
+          "type": "zip",
+          "url" : "~/Repositories/wordpress/build/dist/wordpress-4.0.zip"
+        }
+      }
+    }
+  ]
+}
