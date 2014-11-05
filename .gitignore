@@ -1,5 +1,5 @@
-vendor
-build/api
+vendor/
+build/api/
 build/coverage/
 build/dist/
 build/docs/
@@ -7,3 +7,6 @@ build/html/
 build/logs/
 build/pdepend/
 build/phpdox/
+
+
+composer.lock
