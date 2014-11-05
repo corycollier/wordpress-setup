@@ -11,16 +11,22 @@
   <property name="db.pass" value="password" />
 
   <target name="build"
-      depends="prepare,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox,copy-files,replace-placeholders"
+      depends="composer, prepare,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox,copy-files,replace-placeholders"
       description="The default target. This does everything needed to build the entire project">
+  </target>
+
+  <target name="composer" description="runs the composer update">
+    <exec executable="composer" dir="${basedir}">
+      <arg value="update" />
+    </exec>
   </target>
 
   <target name="copy-files" description="copy files to build location">
 
     <!-- copy the wordpress directory -->
     <copy todir="${basedir}/build/html/">
-      <fileset dir="${basedir}/vendor/wordpress/">
-        <exclude name="**/*.java"/>
+      <fileset dir="${basedir}/wordpress/">
+        <exclude name="**/*.json"/>
       </fileset>
     </copy>
 
