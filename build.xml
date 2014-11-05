@@ -31,7 +31,9 @@
     <!-- copy the wordpress directory -->
     <copy todir="${basedir}/build/html/">
       <fileset dir="${basedir}/wordpress/">
-        <exclude name="**/*.json"/>
+        <exclude name="**/*.json" />
+        <exclude name="**/*.txt" />
+        <exclude name="**/readme.html" />
       </fileset>
     </copy>
 
