@@ -11,6 +11,11 @@
   <property name="db.pass" value="password" />
 
   <target name="build"
+      depends="prepare,lint,copy-files,replace-placeholders"
+      description="The default target. This does everything needed to build the entire project">
+  </target>
+
+  <target name="build-full"
       depends="composer, prepare,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox,copy-files,replace-placeholders"
       description="The default target. This does everything needed to build the entire project">
   </target>
