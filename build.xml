@@ -5,10 +5,11 @@
   <property name="toolsdir" value="${basedir}/vendor/bin/"/>
 
   <property name="project.type" value="plugins" />
-  <property name="db.host" value="localhost" />
-  <property name="db.user" value="wordpress" />
-  <property name="db.name" value="wordpress" />
+  <property name="db.host" value="127.0.0.1" />
+  <property name="db.user" value="wordpress_setup" />
+  <property name="db.name" value="wordpress_setup" />
   <property name="db.pass" value="password" />
+  <property name="project.version" value="1.0.0" />
 
   <target name="build"
       depends="prepare,lint,copy-files,replace-placeholders"
@@ -44,6 +45,7 @@
       </fileset>
     </copy>
 
+    <!-- copy the config file -->
     <copy file="${basedir}/wp-config.php" tofile="${basedir}/build/html/wp-config.php"/>
 
     <!-- only packaging up the theme. We could package up the whole site though ;) -->
