@@ -1,6 +1,6 @@
 {
-  "name"             : "cory/power-posts",
-  "description"      : "Power Posts Plugin",
+  "name"             : "corycollier/wordpress-setup",
+  "description"      : "Wordpress Setup",
   "license"          : "MIT",
   "minimum-stability": "alpha",
 
