@@ -22,7 +22,8 @@
     "theseer/phpdox"           : "0.7.*",
     "phploc/phploc"            : "*",
     "neuralys/jslint"          : "v1.0.0",
-    "phpmd/phpmd"              : "@stable"
+    "phpmd/phpmd"              : "@stable",
+    "wp-cli/wp-cli"            : "0.17.*"
   },
 
   "repositories": [
