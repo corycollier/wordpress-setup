@@ -12,18 +12,24 @@
   <property name="project.version" value="1.0.0" />
 
   <target name="build"
-      depends="prepare,lint,copy-files,replace-placeholders"
+      depends="prepare,lint, grunt,copy-files,replace-placeholders"
       description="The default target. This does everything needed to build the entire project">
   </target>
 
   <target name="build-full"
-      depends="composer, prepare,lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox,copy-files,replace-placeholders"
+      depends="composer,npm,prepare,lint,grunt,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci,phpunit,phpdox,copy-files,replace-placeholders"
       description="The default target. This does everything needed to build the entire project">
   </target>
 
   <target name="composer" description="runs the composer update">
     <exec executable="composer" dir="${basedir}">
       <arg value="update" />
+    </exec>
+  </target>
+
+  <target name="npm" description="install of the node modules">
+    <exec executable="npm" dir="${basedir}" failonerror="true">
+      <arg value="install" />
     </exec>
   </target>
 
@@ -110,6 +116,10 @@
         <modified />
       </fileset>
     </apply>
+  </target>
+
+  <target name="grunt" description="Perform all of the grunt tasks for the client side code">
+    <exec executable="grunt" failonerror="true" />
   </target>
 
   <target name="phploc"

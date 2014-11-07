@@ -8,7 +8,9 @@ build/logs/
 build/pdepend/
 build/phpdox/
 wordpress/
+node_modules/
 
 
 composer.lock
 cache.properties
+npm-debug.log
