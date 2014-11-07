@@ -6,7 +6,7 @@ module.exports = function(grunt) {
       options: {
         reporter: require('jshint-stylish'),
         curly  : true,
-        eqeqeq : true,
+        eqeqeq : false,
         eqnull : true,
         browser: true,
         globals: {
@@ -24,11 +24,15 @@ module.exports = function(grunt) {
         },
         src: ["src/css/*.css"]
       }
+    },
+    qunit: {
+      files: ['tests/*.html']
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-contrib-qunit');
 
-  grunt.registerTask('default', ['jshint', 'csslint']);
+  grunt.registerTask('default', ['jshint', 'csslint', 'qunit']);
 };
