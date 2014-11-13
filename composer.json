@@ -23,7 +23,9 @@
     "phploc/phploc"            : "*",
     "neuralys/jslint"          : "v1.0.0",
     "phpmd/phpmd"              : "@stable",
-    "wp-cli/wp-cli"            : "0.17.*"
+    "wp-cli/wp-cli"            : "0.17.*",
+    "phpunit/phpunit-selenium" : "1.4.2",
+    "emagister/selenium-server": "2.43.*"
   },
 
   "repositories": [

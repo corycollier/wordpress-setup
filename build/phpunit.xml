@@ -25,8 +25,12 @@
    verbose="false">
 
 <testsuites>
-  <testsuite name="Test Suite">
+  <testsuite name="Javascript Test Suite">
     <directory>../tests</directory>
+  </testsuite>
+
+  <testsuite name="Selenium Test Suite">
+    <directory>../tests/selenium</directory>
   </testsuite>
 </testsuites>
 
